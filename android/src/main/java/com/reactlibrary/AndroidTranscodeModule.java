@@ -35,7 +35,7 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
         this.reactContext = reactContext;
     }
 
-    @Override
+    //@Override
     public String getName() {
         return "AndroidTranscode";
     }
