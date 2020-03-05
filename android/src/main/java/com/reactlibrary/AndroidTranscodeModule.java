@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -16,6 +17,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.otaliastudios.transcoder.Transcoder;
 import com.otaliastudios.transcoder.TranscoderListener;
@@ -86,7 +88,10 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
                 public void onTranscodeProgress(double progress) {
                     WritableMap map = Arguments.createMap();
                     map.putDouble("progress", progress);
-                    reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(Objects.requireNonNull(getCurrentActivity()).getTaskId(), "transcodeProgressUpdate", map);
+                    reactContext
+                            .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                            .emit("transcodeProgressUpdate", map);
+                    //reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(-1, "transcodeProgressUpdate", map);
                 }
                 public void onTranscodeCompleted(int successCode) {
                     WritableMap map = Arguments.createMap();
