@@ -49,7 +49,7 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
 
             int height = options.hasKey("height") ? options.getInt("height") : 320;
             int width = options.hasKey("width") ? options.getInt("width") : 480;
-            long bitRate = options.hasKey("bitRate") ? (long) options.getDouble("bitRate") : 1024;
+            long bitRate = options.hasKey("bitRate") ? (long) options.getDouble("bitRate") : 1200;
             int frameRate = options.hasKey("frameRate") ? options.getInt("frameRate") : 24;
             float fractionResizer = options.hasKey("fractionResizer") ? (float) options.getDouble("fractionResizer") : 1F;
             float keyFrameInterval = options.hasKey("keyFrameInterval") ? (float) options.getDouble("keyFrameInterval") : 1F;
