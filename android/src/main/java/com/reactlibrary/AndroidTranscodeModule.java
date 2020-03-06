@@ -2,6 +2,7 @@ package com.reactlibrary;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
@@ -139,6 +140,40 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
 
         } catch (Exception e) {
             promise.reject("transcode_failed", e.toString());
+        }
+    }
+
+    @ReactMethod
+    public  void mediaMetadata(String inputVideoPath, final Promise promise){
+        try{
+            String bitRate, videoWidth, videoHeight, mimeType, videoTitle, videoRotation, videoFrameRate = null;
+
+            MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+            mmr.setDataSource(inputVideoPath);
+
+            videoTitle = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+            mimeType = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_MIMETYPE);
+            bitRate = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_BITRATE);
+            videoWidth = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH);
+            videoHeight = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT);
+            videoRotation = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                videoFrameRate = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_CAPTURE_FRAMERATE);
+            }
+
+            WritableMap map = Arguments.createMap();
+            map.putString("title", videoTitle);
+            map.putString("mimeType", mimeType );
+            map.putString("width", videoWidth);
+            map.putString("height", videoHeight);
+            map.putString("bitRate", bitRate);
+            map.putString("frameRate", videoFrameRate);
+            map.putString("rotation", videoRotation);
+
+            promise.resolve(map);
+        }
+        catch (Exception error){
+            promise.reject("mediaMetadata_failed",error);
         }
     }
 }
