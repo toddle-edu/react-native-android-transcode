@@ -48,11 +48,29 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
     public void compressVideo(String inputFilePath, ReadableMap options, final Promise promise){
         try {
 
-            int height = options.hasKey("height") ? options.getInt("height") : 320;
-            int width = options.hasKey("width") ? options.getInt("width") : 480;
+            MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+            mmr.setDataSource(inputFilePath);
+
+            int videoWidth = Integer.parseInt(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
+            int videoHeight = Integer.parseInt(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
+            float fractionSize = 1F;
+
+            if(videoWidth < videoHeight && videoWidth > 480){
+                float tempFraction = (float) 480/videoWidth;
+                if(tempFraction > 0 && tempFraction <= 1) fractionSize = tempFraction;
+            }
+            else if(videoHeight < videoWidth && videoHeight > 480){
+                float tempFraction  = (float) 480/videoHeight;
+                if(tempFraction > 0 && tempFraction <= 1) fractionSize = tempFraction;
+            }
+
+            //System.out.println("fraction_size "+fractionSize);
+
+            //int height = options.hasKey("height") ? options.getInt("height") : 480;
+            //int width = options.hasKey("width") ? options.getInt("width") : 640;
             long bitRate = options.hasKey("bitRate") ? (long) options.getDouble("bitRate") : 1200;
             int frameRate = options.hasKey("frameRate") ? options.getInt("frameRate") : 24;
-            float fractionResizer = options.hasKey("fractionResizer") ? (float) options.getDouble("fractionResizer") : 1F;
+            float fractionResizer = options.hasKey("fractionResizer") ? (float) options.getDouble("fractionResizer") : fractionSize;
             float keyFrameInterval = options.hasKey("keyFrameInterval") ? (float) options.getDouble("keyFrameInterval") : 1F;
 
             File outputDir = Objects.requireNonNull(reactContext).getCacheDir();
@@ -76,8 +94,9 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
             /* Set Video Track Strategy */
             TranscoderObject.setVideoTrackStrategy(
                     DefaultVideoStrategy
-                            .exact(height, width)
-                            .addResizer(new FractionResizer(fractionResizer))
+                            .fraction(fractionResizer)
+                            //.exact(height, width)
+                            //.addResizer(new FractionResizer(fractionResizer))
                             .bitRate(bitRate * 1000)
                             .frameRate(frameRate)
                             .keyFrameInterval(keyFrameInterval)
@@ -92,7 +111,6 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
                     reactContext
                             .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                             .emit("transcodeProgressUpdate", map);
-                    //reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(-1, "transcodeProgressUpdate", map);
                 }
                 public void onTranscodeCompleted(int successCode) {
                     WritableMap map = Arguments.createMap();
@@ -144,7 +162,7 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public  void mediaMetadata(String inputVideoPath, final Promise promise){
+    public void mediaMetadata(String inputVideoPath, final Promise promise){
         try{
             String bitRate, videoWidth, videoHeight, mimeType, videoTitle, videoRotation, videoFrameRate = null;
 
