@@ -1,15 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.otaliastudios:transcoder:0.8.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2522ad44f42ada55c0841870d173d153/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/62012d3ecd1e41c3b107d208dc9a7317/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2522ad44f42ada55c0841870d173d153/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2522ad44f42ada55c0841870d173d153/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/62012d3ecd1e41c3b107d208dc9a7317/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/62012d3ecd1e41c3b107d208dc9a7317/res" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.otaliastudios/transcoder/0.8.0/5c36415d28743af8ffc897513215f8ce4efcf892/transcoder-0.8.0-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.otaliastudios/transcoder/0.8.0/2fedf110a256c6608b90109ef25ae2cb90aa510f/transcoder-0.8.0-sources.jar!/" />
     </SOURCES>

@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.react:react-native:0.20.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d563044f4a8f597afe432a3d5c8b9a3b/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f83f10e151585e8c3b3637c2767fc5b/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d563044f4a8f597afe432a3d5c8b9a3b/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d563044f4a8f597afe432a3d5c8b9a3b/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d563044f4a8f597afe432a3d5c8b9a3b/jars/libs/infer-annotations-1.5.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f83f10e151585e8c3b3637c2767fc5b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f83f10e151585e8c3b3637c2767fc5b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f83f10e151585e8c3b3637c2767fc5b/jars/libs/infer-annotations-1.5.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

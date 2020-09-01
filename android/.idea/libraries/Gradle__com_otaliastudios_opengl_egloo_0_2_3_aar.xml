@@ -1,12 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.otaliastudios.opengl:egloo:0.2.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f766e107183bd4e00f53679398d27457/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f766e107183bd4e00f53679398d27457/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/74b25e39b4794ec51e7f2477b70f0ad1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/74b25e39b4794ec51e7f2477b70f0ad1/res" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.otaliastudios.opengl/egloo/0.2.3/4858a116ae1484cd7186b50c512e3bd9280ffb74/egloo-0.2.3-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.otaliastudios.opengl/egloo/0.2.3/ca184507701e34ee093d205604a70bb507332c58/egloo-0.2.3-sources.jar!/" />
     </SOURCES>

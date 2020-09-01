@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.toddletranscode;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
