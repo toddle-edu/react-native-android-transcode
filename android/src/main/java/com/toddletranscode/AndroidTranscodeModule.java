@@ -73,9 +73,11 @@ public class AndroidTranscodeModule extends ReactContextBaseJavaModule {
             float fractionResizer = options.hasKey("fractionResizer") ? (float) options.getDouble("fractionResizer") : fractionSize;
             float keyFrameInterval = options.hasKey("keyFrameInterval") ? (float) options.getDouble("keyFrameInterval") : 1F;
 
-            File outputDir = Objects.requireNonNull(reactContext).getDataDir();
+            String outputDir = Objects.requireNonNull(reactContext).getApplicationInfo().dataDir;
+            String filename = "video_to_upload_-"+System.currentTimeMillis()+".mp4";
             // final File outputFile = File.createTempFile("video_to_upload_", ".mp4", outputDir);
-            final File outputFile = new File(outputDir, "video_to_upload_.mp4");
+            // final File outputFile = new File(outputDir, "video_to_upload_.mp4");
+            final File outputFile = new File(outputDir + File.separator + filename);
             outputFile.createNewFile();
 
             /* Define Output path for Transcoder*/
