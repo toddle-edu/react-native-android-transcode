@@ -24,7 +24,7 @@ import com.otaliastudios.transcoder.Transcoder;
 import com.otaliastudios.transcoder.TranscoderListener;
 import com.otaliastudios.transcoder.TranscoderOptions;
 import com.otaliastudios.transcoder.strategy.DefaultVideoStrategy;
-import com.otaliastudios.transcoder.strategy.size.FractionResizer;
+import com.otaliastudios.transcoder.resize.FractionResizer;
 
 import java.io.File;
 import java.util.Objects;

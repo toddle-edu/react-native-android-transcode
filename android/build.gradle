@@ -73,7 +73,7 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    api 'com.otaliastudios:transcoder:0.8.0'
+    api 'com.otaliastudios:transcoder:0.10.5'
 }
 
 def configureReactNativePom(def pom) {
